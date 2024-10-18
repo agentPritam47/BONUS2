@@ -1,5 +1,5 @@
 import { Canvas } from "@react-three/fiber";
-import React from "react";
+import React, { Suspense } from "react";
 import Experience from "./Experience";
 import {
   Environment,
@@ -18,8 +18,10 @@ const Scene = () => {
   return (
     <Canvas camera={{ position: [0, 3, 7], fov: 30 }}>
       <color attach={"background"} args={["#0e0e0e"]} />
-      <Experience />
-      <OrbitControls />
+      <Suspense>
+        <Experience />
+      </Suspense>
+      <OrbitControls enableZoom={false} />
       <Environment preset="warehouse" environmentIntensity={0.6} />
       <directionalLight position={[5, 2, 1]} intensity={10} color={"#055605"} />
       {/* <directionalLight position={[-5, -2, 1]} intensity={10} color={"#055605"} /> */}
@@ -39,7 +41,7 @@ const Scene = () => {
         <BrightnessContrast brightness={0} contrast={0.5} />
       </EffectComposer>
 
-        <fog attach={"fog"} args={["#0e0e0e", 10, 50]} />
+      <fog attach={"fog"} args={["#0e0e0e", 10, 50]} />
     </Canvas>
   );
 };
