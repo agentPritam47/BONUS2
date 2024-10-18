@@ -21,7 +21,7 @@ const Scene = () => {
       <Suspense>
         <Experience />
       </Suspense>
-      <OrbitControls enableZoom={false} />
+      <OrbitControls enableZoom={false} enablePan={false} />
       <Environment preset="warehouse" environmentIntensity={0.6} />
       <directionalLight position={[5, 2, 1]} intensity={10} color={"#055605"} />
       {/* <directionalLight position={[-5, -2, 1]} intensity={10} color={"#055605"} /> */}
