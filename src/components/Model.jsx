@@ -14,10 +14,16 @@ export function Model(props) {
   const { nodes, materials } = useGLTF("/the_hornet_military_helmet.glb");
   const groupRef = useRef();
   useFrame((state) => {
-    const { x, y } = state.mouse; // Normalized mouse position from -1 to 1
-    if (groupRef.current) {
-      groupRef.current.rotation.y = x * 0.5; // Rotate left and right
-      groupRef.current.rotation.x = -y * 0.5; // Rotate up and down
+    // Get the current screen width
+    const screenWidth = window.innerWidth;
+    
+    // Only apply the animation if the screen width is larger than 1024px
+    if (screenWidth > 1024) {
+      const { x, y } = state.mouse; // Normalized mouse position from -1 to 1
+      if (groupRef.current) {
+        groupRef.current.rotation.y = x * 0.5; // Rotate left and right
+        groupRef.current.rotation.x = -y * 0.5; // Rotate up and down
+      }
     }
   });
   return (

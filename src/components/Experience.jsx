@@ -3,9 +3,6 @@ import { Model } from "./Model";
 import {
   Billboard,
   MeshReflectorMaterial,
-  MeshTransmissionMaterial,
-  MeshWobbleMaterial,
-  Point,
   Text,
   useTexture,
 } from "@react-three/drei";
@@ -111,6 +108,8 @@ const Experience = () => {
             metalness={0.5}
           />
         </mesh>
+
+        
 
         <group position={[3, -1.3, -3]}>
           <mesh scale={1} position-y={-1}>
